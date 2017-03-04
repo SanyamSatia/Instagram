@@ -20,11 +20,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.delegate = self
         tableView.dataSource = self
         
+        let refreshControl  = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
+        
         let query = PFQuery(className: "Post")
         query.order(byDescending: "createdAt")
         query.includeKey("author")
         query.limit = 20
-        
         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
             if let posts = posts {
                 print("retrieved posts")
@@ -54,6 +57,25 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.post = posts[indexPath.row]
         
         return cell
+    }
+    
+    func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        let query = PFQuery(className: "Post")
+        query.order(byDescending: "createdAt")
+        query.includeKey("author")
+        query.limit = 20
+        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
+            if let posts = posts {
+                print("retrieved posts")
+                self.posts = Post.postsFromArray(objects: posts)
+                self.tableView.reloadData()
+                refreshControl.endRefreshing()
+            }
+            else {
+                print("Error: \(error?.localizedDescription)")
+                refreshControl.endRefreshing()
+            }
+        }
     }
     
     /*

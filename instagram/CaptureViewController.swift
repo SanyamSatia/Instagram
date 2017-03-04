@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -59,9 +60,11 @@ class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func onShare(_ sender: Any) {
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         Post.postUserImage(image: photoImageView.image, withCaption: captionTextView.text) { (success: Bool, error: Error?) in
             if success {
                 print("posted photo")
+                MBProgressHUD.hide(for: self.view, animated: true)
                 self.tabBarController?.selectedIndex = 0
             }
             else {
