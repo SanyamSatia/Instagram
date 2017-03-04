@@ -8,12 +8,20 @@
 
 import UIKit
 
-class CaptureViewController: UIViewController {
+class CaptureViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var captionTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let imageTapGesture = UITapGestureRecognizer(target: self, action: #selector(CaptureViewController.imageClicked(gesture:)))
+        photoImageView.addGestureRecognizer(imageTapGesture)
+        photoImageView.isUserInteractionEnabled = true
+        
+        captionTextView.layer.borderColor = UIColor.lightGray.cgColor
+        captionTextView.layer.borderWidth = 1.0
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,7 +29,47 @@ class CaptureViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+        photoImageView.image = editedImage
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imageClicked(gesture: UIGestureRecognizer) {
+        view.endEditing(true)
+    }
 
+    @IBAction func onCamera(_ sender: Any) {
+        let viewController = UIImagePickerController()
+        viewController.delegate = self
+        viewController.allowsEditing = true
+        viewController.sourceType = .camera
+        
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func onLibrary(_ sender: Any) {
+        let viewController = UIImagePickerController()
+        viewController.delegate = self
+        viewController.allowsEditing = true
+        viewController.sourceType = .savedPhotosAlbum
+        
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func onShare(_ sender: Any) {
+        Post.postUserImage(image: photoImageView.image, withCaption: captionTextView.text) { (success: Bool, error: Error?) in
+            if success {
+                print("posted photo")
+                self.tabBarController?.selectedIndex = 0
+            }
+            else {
+                print("Error: \(error?.localizedDescription)")
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

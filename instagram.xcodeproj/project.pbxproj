@@ -11,6 +11,7 @@
 		A40360FC1E6A297200362C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40360FA1E6A297200362C56 /* Main.storyboard */; };
 		A40360FE1E6A297200362C56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A40360FD1E6A297200362C56 /* Assets.xcassets */; };
 		A40361011E6A297200362C56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40360FF1E6A297200362C56 /* LaunchScreen.storyboard */; };
+		A431FE2D1E6B431000E9F4B5 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431FE2C1E6B431000E9F4B5 /* PostTableViewCell.swift */; };
 		A48414291E6A2C7D00AF1F69 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48414281E6A2C7D00AF1F69 /* LoginViewController.swift */; };
 		A484142B1E6A3C4D00AF1F69 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484142A1E6A3C4D00AF1F69 /* HomeViewController.swift */; };
 		A484142D1E6A3C5800AF1F69 /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484142C1E6A3C5800AF1F69 /* CaptureViewController.swift */; };
@@ -29,6 +30,7 @@
 		A40360FD1E6A297200362C56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A40361001E6A297200362C56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A40361021E6A297200362C56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A431FE2C1E6B431000E9F4B5 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		A48414281E6A2C7D00AF1F69 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A484142A1E6A3C4D00AF1F69 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A484142C1E6A3C5800AF1F69 /* CaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				A484142A1E6A3C4D00AF1F69 /* HomeViewController.swift */,
 				A484142C1E6A3C5800AF1F69 /* CaptureViewController.swift */,
 				A484142E1E6A3C6200AF1F69 /* ProfileViewController.swift */,
+				A431FE2C1E6B431000E9F4B5 /* PostTableViewCell.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				A48414291E6A2C7D00AF1F69 /* LoginViewController.swift in Sources */,
 				A484142D1E6A3C5800AF1F69 /* CaptureViewController.swift in Sources */,
 				A484142F1E6A3C6200AF1F69 /* ProfileViewController.swift in Sources */,
+				A431FE2D1E6B431000E9F4B5 /* PostTableViewCell.swift in Sources */,
 				A48414331E6A400D00AF1F69 /* Post.swift in Sources */,
 				A40360F71E6A297200362C56 /* AppDelegate.swift in Sources */,
 				A484142B1E6A3C4D00AF1F69 /* HomeViewController.swift in Sources */,
@@ -375,7 +379,7 @@
 				DEVELOPMENT_TEAM = NY7DR55T69;
 				INFOPLIST_FILE = instagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ss.instagram;
+				PRODUCT_BUNDLE_IDENTIFIER = ss.instagram54667;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -389,7 +393,7 @@
 				DEVELOPMENT_TEAM = NY7DR55T69;
 				INFOPLIST_FILE = instagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ss.instagram;
+				PRODUCT_BUNDLE_IDENTIFIER = ss.instagram54667;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

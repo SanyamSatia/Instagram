@@ -7,13 +7,34 @@
 //
 
 import UIKit
+import Parse
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
+    var posts: [Post]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        let query = PFQuery(className: "Post")
+        query.order(byDescending: "createdAt")
+        query.includeKey("author")
+        query.limit = 20
+        
+        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
+            if let posts = posts {
+                print("retrieved posts")
+                self.posts = Post.postsFromArray(objects: posts)
+                self.tableView.reloadData()
+            }
+            else {
+                print("Error: \(error?.localizedDescription)")
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,7 +42,20 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if posts != nil {
+            return posts.count
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostTableViewCell
+        cell.post = posts[indexPath.row]
+        
+        return cell
+    }
+    
     /*
     // MARK: - Navigation
 
