@@ -26,12 +26,7 @@ class PostTableViewCell: UITableViewCell {
             }
             
             captionLabel.text = post.caption
-            
-            if let timestamp = post.timestamp {
-                let formatter = DateFormatter()
-                formatter.dateFormat = "MMM dd HH:mm"
-                timestampLabel.text = formatter.string(from: timestamp)
-            }
+            timestampLabel.text = post.timestamp?.uppercased()
         }
     }
     

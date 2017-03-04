@@ -192,11 +192,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="498" id="sMo-c9-szi" customClass="PostTableViewCell" customModule="instagram" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="498"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="490" id="sMo-c9-szi" customClass="PostTableViewCell" customModule="instagram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="490"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sMo-c9-szi" id="DB9-sC-1cR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="497"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="489"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GEU-Te-EA0">
@@ -219,8 +219,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGg-7E-dSh">
-                                                    <rect key="frame" x="8" y="449" width="359" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <rect key="frame" x="8" y="447" width="359" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -236,7 +236,7 @@
                                                 <constraint firstItem="GEU-Te-EA0" firstAttribute="leading" secondItem="DB9-sC-1cR" secondAttribute="leading" id="auc-Nf-rKa"/>
                                                 <constraint firstItem="psy-Tq-2Id" firstAttribute="top" secondItem="GEU-Te-EA0" secondAttribute="bottom" constant="8" id="cGr-Dr-rE4"/>
                                                 <constraint firstItem="VGg-7E-dSh" firstAttribute="leading" secondItem="DB9-sC-1cR" secondAttribute="leading" constant="8" id="eZ2-89-Sfj"/>
-                                                <constraint firstItem="VGg-7E-dSh" firstAttribute="top" secondItem="psy-Tq-2Id" secondAttribute="bottom" constant="8" id="nne-kd-qaQ"/>
+                                                <constraint firstItem="VGg-7E-dSh" firstAttribute="top" secondItem="psy-Tq-2Id" secondAttribute="bottom" constant="6" id="nne-kd-qaQ"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="VGg-7E-dSh" secondAttribute="bottom" constant="6" id="pqP-Am-n4Q"/>
                                                 <constraint firstAttribute="trailing" secondItem="h7a-JB-tyb" secondAttribute="trailing" constant="8" id="qCr-Ws-uRm"/>
                                             </constraints>

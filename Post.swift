@@ -14,7 +14,7 @@ class Post: NSObject {
     var username: String?
     var file: PFFile?
     var caption: String?
-    var timestamp: Date?
+    var timestamp: String?
     
     init(object: PFObject) {
         let user = object["author"] as! PFUser?
@@ -22,7 +22,10 @@ class Post: NSObject {
         
         file = object["media"] as! PFFile?
         caption = object["caption"] as! String?
-        timestamp = object["createdAt"] as! Date?
+    
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM dd HH:mm"
+        timestamp = formatter.string(from: object.createdAt!)
     }
     
     class func postUserImage(image: UIImage?, withCaption caption: String?, withCompletion completion: PFBooleanResultBlock?) {
@@ -31,7 +34,6 @@ class Post: NSObject {
         post["media"] = Post.getPFFileFromImage(image: image)
         post["author"] = PFUser.current()
         post["caption"] = caption
-        post["createdAt"] = Date()
         post["likesCount"] = 0
         post["commentsCount"] = 0
         
